@@ -1,0 +1,231 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--clr-primary: #2882f7;
+	--clr-light: #f4f4f4;
+	--clr-dark: #333;
+}
+
+body {
+	background-image: url(../img/main-bg2.jpg);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: 100% 100%;
+	background-position: center center;
+	color: var(--clr-dark);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 16px;
+}
+
+.container {
+	display: grid;
+	margin: 0 5%;
+	height: 100vh;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "start banner";
+}
+.get-started-container {
+	grid-area: start;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1em;
+}
+.banner-container {
+	grid-area: banner;
+}
+
+.title-started {
+	font-family: "Work Sans", sans-serif;
+	font-weight: 900;
+	font-style: italic;
+	font-size: 2.5em;
+}
+.title-started span {
+	font-family: inherit;
+	transition: all 500ms ease-in;
+}
+.title-started span.fade {
+	color: var(--clr-light);
+}
+.info-started {
+	font-size: 1em;
+	font-family: inherit;
+	margin-bottom: 1.2em;
+}
+.btn-pop-form {
+	font-family: "Work Sans", sans-serif;
+}
+.btn-signup {
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-family: inherit;
+	width: fit-content;
+	padding: 0.5em;
+	background: green;
+	border: 1px solid var(--clr-light);
+	border-radius: 10px;
+	outline: none;
+	color: var(--clr-light);
+	transition: 200ms ease-in;
+}
+.btn-signup:hover {
+	background: var(--clr-light);
+	border: 1px solid var(--clr-dark);
+	color: var(--clr-dark);
+}
+.btn-signin {
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 1.5em;
+	font-family: inherit;
+	width: fit-content;
+	padding: 0.5em;
+	background: var(--clr-primary);
+	border: 1px solid var(--clr-light);
+	border-radius: 10px;
+	outline: none;
+	color: var(--clr-light);
+	transition: 200ms ease-in;
+}
+.btn-signin:hover {
+	background: var(--clr-light);
+	border: 1px solid var(--clr-dark);
+	color: var(--clr-dark);
+}
+/* FORM*/
+.form-container {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	background: var(--clr-primary);
+	border: 3px solid white;
+	border-radius: 10px;
+	color: var(--clr-light);
+	z-index: 1;
+	transition: 200ms ease-in-out;
+}
+.form-container.active {
+	transform: translate(-50%, -50%) scale(1);
+}
+.form-header {
+	padding: 10px;
+	border-bottom: 3px solid white;
+	background: rgb(0, 0, 0, 25%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.close-form {
+	background: none;
+	border: none;
+	outline: none;
+	color: currentColor;
+	font-size: 1.25em;
+}
+.form-signin {
+	display: none;
+	font-size: 1em;
+	font-family: inherit;
+	color: var(--clr-light);
+	padding: 15px;
+	width: 350px;
+}
+.form-signup {
+	display: none;
+	font-size: 1em;
+	font-family: inherit;
+	color: var(--clr-light);
+	padding: 15px;
+	width: 350px;
+}
+.form-signin.active,
+.form-signup.active {
+	display: block;
+}
+.input-group {
+	position: relative;
+	width: 100%;
+	font-family: inherit;
+	margin-bottom: 10px;
+}
+.input-label {
+	display: block;
+	font-size: 1, 2em;
+}
+.input {
+	display: block;
+	padding: 5px 15px 5px 5px;
+	width: 100%;
+	outline: none;
+	border: 1px solid white;
+	border-radius: 3px;
+	color: var(--clr-dark);
+}
+.input-group i {
+	position: absolute;
+	visibility: hidden;
+	right: 5px;
+	top: 24px;
+}
+.input-group.valid i.fa-check-circle {
+	visibility: visible;
+	color: green;
+}
+.input-group.invalid i.fa-exclamation-circle {
+	visibility: visible;
+	color: red;
+}
+.input-group.valid .input {
+	border: 1px solid green;
+}
+.input-group.invalid .input {
+	border: 1px solid red;
+}
+.error-message {
+	font-size: 0.8em;
+	font-family: inherit;
+	font-weight: 900;
+	display: none;
+}
+.input-group.invalid .error-message {
+	display: block;
+	color: red;
+}
+.signup {
+	padding: 10px;
+	width: 100%;
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: 900;
+	background: var(--clr-primary);
+	border: 1px solid var(--clr-light);
+	border-radius: 5px;
+	color: var(--clr-light);
+	transition: 200ms ease-in-out;
+}
+.signup:hover {
+	background: green;
+	border: 1px solid var(--clr-primary);
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	background: rgb(0, 0, 0, 50%);
+	pointer-events: none;
+}
+.overlay.active {
+	opacity: 1;
+	pointer-events: all;
+}

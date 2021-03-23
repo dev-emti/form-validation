@@ -1,0 +1,110 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--clr-primary: #2882f7;
+	--clr-light: #f4f4f4;
+	--clr-dark: #333;
+}
+
+body {
+	background-image: url(../img/main-form.jpg);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: 100% 100%;
+	background-position: center center;
+	color: var(--clr-light);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 16px;
+}
+.container {
+	display: flex;
+	margin: 0 5%;
+	height: 100vh;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.form {
+	font-size: 1em;
+	font-family: inherit;
+	background: var(--clr-dark);
+	opacity: 0.9;
+	color: var(--clr-light);
+	border: 3px solid var(--clr-light);
+	border-radius: 10px;
+	padding: 15px;
+	width: 350px;
+}
+.input-group {
+	position: relative;
+	width: 100%;
+	font-family: inherit;
+	margin-bottom: 10px;
+}
+.input-label {
+	display: block;
+	font-size: 1, 2em;
+}
+.input {
+	display: block;
+	padding: 5px 15px 5px 5px;
+	width: 100%;
+	outline: none;
+	border: 1px solid white;
+	border-radius: 3px;
+	color: var(--clr-dark);
+}
+.input-group i {
+	position: absolute;
+	visibility: hidden;
+	right: 5px;
+	top: 24px;
+}
+.input-group.valid i.fa-check-circle {
+	visibility: visible;
+	color: green;
+}
+.input-group.invalid i.fa-exclamation-circle {
+	visibility: visible;
+	color: red;
+}
+.input-group.valid .input {
+	border: 1px solid green;
+}
+.input-group.invalid .input {
+	border: 1px solid red;
+}
+.error-message {
+	font-size: 0.8em;
+	font-family: inherit;
+	font-weight: 900;
+	display: none;
+}
+.input-group.invalid .error-message {
+	display: block;
+	color: red;
+}
+.signup {
+	padding: 10px;
+	width: 100%;
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: 900;
+	background: var(--clr-primary);
+	border: 1px solid var(--clr-light);
+	border-radius: 5px;
+	color: var(--clr-light);
+	transition: 200ms ease-in-out;
+}
+.signup:hover {
+	background: green;
+	border: 1px solid var(--clr-primary);
+}
+.overlay {
+	position: relative;
+}
